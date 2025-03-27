@@ -1,0 +1,56 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+  "name": "Social Links Profile",
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "workspaceMount": "source=${localWorkspaceFolder}/..,target=/workspace,type=bind",
+  "workspaceFolder": "/workspace/social-links-profile",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "remoteEnv": {
+    "CHROME_BIN": "/usr/bin/chromium"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Angular.ng-template",
+        "dbaeumer.vscode-eslint",
+        "mike-co.import-sorter",
+        "SonarSource.sonarlint-vscode",
+        "esbenp.prettier-vscode",
+        "christian-kohler.path-intellisense",
+        "christian-kohler.npm-intellisense",
+        "Zignd.html-css-class-completion",
+        "wix.vscode-import-cost",
+        "eamodio.gitlens",
+        "EditorConfig.EditorConfig",
+        "formulahendry.auto-rename-tag",
+        "johnpapa.Angular2",
+        "cyrilletuzi.angular-schematics",
+        "ecmel.vscode-html-css",
+        "GitHub.copilot"
+      ],
+      "settings": {
+        "files.autoSave": "afterDelay",
+        "workbench.colorTheme": "Tokyo Night",
+        "workbench.iconTheme": "material-icon-theme",
+        "editor.fontSize": 14,
+        "editor.fontFamily": "'FiraCode Nerd Font Mono'",
+        "terminal.integrated.fontFamily": "monospace",
+        "editor.fontLigatures": true,
+        "git.autofetch": true,
+        "editor.inlineSuggest.enabled": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "eslint.useFlatConfig": true,
+        "prettier.trailingComma": "all",
+        "editor.linkedEditing": true,
+        "prettier.experimentalTernaries": true,
+        "sonarlint.pathToNodeExecutable": "/usr/local/share/nvm/versions/node/v22.13.1/bin/node",
+        "sonarlint.ls.javaHome": "/usr/lib/jvm/java-17-openjdk-arm64",
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y chromium chromium-driver && sudo apt-get install -y default-jre && npm ci"
+}
